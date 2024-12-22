@@ -5,12 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PharmaSyncAI</title>
     <style>
+        :root {
+            --primary-bg-color: #f9f9f9;
+            --primary-text-color: #333;
+            --secondary-bg-color: #0078D7;
+            --secondary-text-color: white;
+            --nav-bg-color: #005A9E;
+            --button-bg-color: #005A9E;
+            --button-hover-bg-color: #003F73;
+        }
+
+        .dark-mode {
+            --primary-bg-color: #121212;
+            --primary-text-color: #e0e0e0;
+            --secondary-bg-color: #1f1f1f;
+            --secondary-text-color: #e0e0e0;
+            --nav-bg-color: #333;
+            --button-bg-color: #444;
+            --button-hover-bg-color: #666;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
+            background-color: var(--primary-bg-color);
+            color: var(--primary-text-color);
             background-image: url(https://st3.depositphotos.com/13349494/17896/i/450/depositphotos_178964966-stock-photo-stethoscope-paper-cardiogram-scattered-pills.jpg);
             background-size: cover; /* Ensures the image covers the entire screen */
             background-position: center center; /* Centers the image */
@@ -20,8 +40,8 @@
         }
 
         header {
-            background-color: #0078D7;
-            color: white;
+            background-color: var(--secondary-bg-color);
+            color: var(--secondary-text-color);
             padding: 1rem;
             text-align: center;
         }
@@ -29,12 +49,12 @@
         nav {
             display: flex;
             justify-content: center;
-            background-color: #005A9E;
+            background-color: var(--nav-bg-color);
             padding: 0.5rem 0;
         }
 
         nav a {
-            color: white;
+            color: var(--secondary-text-color);
             text-decoration: none;
             margin: 0 1rem;
             font-weight: bold;
@@ -48,7 +68,7 @@
             max-width: 800px;
             margin: 2rem auto;
             padding: 1rem;
-            background: white;
+            background: var(--primary-bg-color);
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
@@ -57,8 +77,8 @@
         footer {
             text-align: center;
             padding: 1rem;
-            background-color: #0078D7;
-            color: white;
+            background-color: var(--secondary-bg-color);
+            color: var(--secondary-text-color);
             position: fixed;
             width: 100%;
             bottom: 0;
@@ -87,8 +107,8 @@
         }
 
         button {
-            background-color: #005A9E;
-            color: white;
+            background-color: var(--button-bg-color);
+            color: var(--secondary-text-color);
             border: none;
             padding: 0.5rem 1rem;
             border-radius: 4px;
@@ -96,7 +116,7 @@
         }
 
         button:hover {
-            background-color: #003F73;
+            background-color: var(--button-hover-bg-color);
         }
 
         .chat-buttons {
@@ -105,12 +125,22 @@
             justify-content: center;
             gap: 1rem;
         }
+
+        .mode-toggle {
+            margin: 1rem;
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
     <header>
         <h1>PharmaSyncAI</h1>
     </header>
+
+    <div class="mode-toggle">
+        <button onclick="toggleMode()">Toggle Light/Dark Mode</button>
+    </div>
 
     <nav>
         <a href="index.html">Home</a>
@@ -135,5 +165,11 @@
     <footer>
         &copy; 2024 PharmaSyncAI. All rights reserved.
     </footer>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
 </body>
 </html>
